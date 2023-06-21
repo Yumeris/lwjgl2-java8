@@ -24,8 +24,9 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
-    - name: Generate
+    - name : clean
       run: ant clean-all
+    - name: Generate
       run: ant generate-all
     - name: Compile
       run: ant compile
