@@ -15,6 +15,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Configure VS Toolchain (Windows)
+      if: matrix.os == 'windows-latest'
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Setup Environment (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        echo "EXT=.exe" >> $GITHUB_ENV
+        
+    - name: Build Library And Examples (Windows)
+      if: matrix.os == 'windows-latest'
+      run: |
+        cd cmake_build
+        nmake
+        nmake install
+        
     - uses: actions/checkout@v3
     - name: Set up JDK 8
       uses: actions/setup-java@v3
