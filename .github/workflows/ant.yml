@@ -22,8 +22,8 @@ jobs:
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: '8'
-        distribution: 'temurin'
+        java-version: `11'
+        distribution: 'corretto'
     - name : clean
       run: ant clean
     - name: Generate
